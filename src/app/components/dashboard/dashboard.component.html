@@ -1,0 +1,39 @@
+<div class="dashboard full-height">
+  <div class="current-time">{{time}}</div>
+  <div class="current-location">
+    <span>{{currentDashboardItem.location.name}}</span>
+    <span>, </span>
+    <span>{{currentDashboardItem.location.region}}</span>
+  </div>
+  <button class="add-favt-button flex-center" (click)="onClickAdd(currentDashboardItem || weatherdata[0])">
+    <ion-icon name="heart" [class.filled]="toggle == true"></ion-icon>
+    <span>Add to favourite</span>
+  </button>
+  <div class="current-weather">
+    @if(currentDashboardItem?.current?.weather_descriptions[0] === 'Partly Cloudy'){
+    <ion-icon class="weather-icon" name="partly-sunny-outline"></ion-icon>
+    }@else if(currentDashboardItem?.current?.weather_descriptions[0] === "Sunny"){
+    <ion-icon class="weather-icon" name="sunny-outline"></ion-icon>
+    }@else {
+    <ion-icon class="weather-icon" name="rainy-outline"></ion-icon>
+    }
+    <div>
+      <div class="weather-temp top-margin">
+        {{currentDashboardItem?.current?.temperature}} &deg;C
+      </div>
+      <div class="weather-status top-margin">
+        {{currentDashboardItem?.current?.weather_descriptions[0]}}
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    @for (item of weatherArray; track item.icon) {
+    <app-card [item]="item"></app-card>
+    } @empty {
+    <li>There are no items.</li>
+    }
+  </div>
+  
+<div class="hide">{{filteredLocation}}</div>
+
+</div>

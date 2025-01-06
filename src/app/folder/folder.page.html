@@ -1,21 +1,63 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-app>
+  @if(!isSearchPage){
+  <ion-header [translucent]="true" class="ion-header">
     <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
+      <div class="tool-bar">
+        <div class="flex-center full-width">
+          @if(isLandingPage){
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          }@else {
+          <ion-buttons class="back-button" slot="start" (click)="myBackButton()">
+            <ion-back-button class="flex-center"></ion-back-button>
+          </ion-buttons>
+          }
+          <ion-title class="header-title">{{ folder }}</ion-title>
+          <ion-icon (click)="handleClick()" class="search-icon" name="search" slot="end">
+          </ion-icon>
+        </div>
+      </div>
     </ion-toolbar>
   </ion-header>
+  }@else {
+  <ion-header [translucent]="true" class="ion-header">
+    <ion-toolbar class="back-button">
+      <div class="tool-bar">
+        <div class="flex-center">
+          <ion-buttons class="back-button" slot="start" (click)="myBackButton()">
+            <ion-back-button class="flex-center"></ion-back-button>
+          </ion-buttons>
+        </div>
+      </div>
+    </ion-toolbar>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-toolbar class="search-bar">
+      <div class="tool-bar full-width">
+        <ion-item id="itemautocomplete" detail="false" style="padding-left:0px;padding-right:0px">
+          <ion-searchbar animated value="" type="text" debounce="500" (ionInput)="updateSearchResults($event)"
+            placeholder="Search for a city" #input class="input-search-bar" [value]="selectedCountry">
+          </ion-searchbar>
+        </ion-item>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  }
+
+  <div style="--offset-top: 0px !important;" class="ion-content">
+
+    <div id="container" class="full-height dashboard">
+      @if(folder === 'weather'){
+      <div class="full-height"><app-dashboard [isLandingPage]="hasUrlQuery" [current]="current" [weather]="weatherdata"></app-dashboard></div>
+      }@else if (folder==='favorites') {
+      <app-favourites (updateStorage)="updateStorage()" [favourites]="favourites"></app-favourites>
+      }@else if(folder==='search'){
+      <app-search [isItemAvailable]="isItemAvailable" [filteredData]="filteredData"
+        class="app-search full-width" [selectedCountry]="selectedCountry"></app-search>
+      }@else {
+        <app-recent-searches [recentSearches]="recentSearches"></app-recent-searches>
+      }
+    </div>
   </div>
-</ion-content>
+
+</ion-app>

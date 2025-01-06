@@ -1,19 +1,29 @@
 import { Component } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { RouterLinkActive, RouterLink } from '@angular/router';
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
-  standalone: false,
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.scss'],
+    imports: [
+        IonicModule,
+        RouterLinkActive,
+        RouterLink,
+    ],
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
+    { title: 'Home', url: '/folder/home', icon: 'home' },
     { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'Recent Searches', url: '/folder/recent search', icon: 'search' },
+    // { title: 'Search', url: '/folder/search', icon: 'search' },
+    
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  handleClick() {
+    console.log('IonicModule', IonicModule);
+    setTimeout(() => {
+      // window.location.reload()
+    }, 500);
+  }
   constructor() {}
 }

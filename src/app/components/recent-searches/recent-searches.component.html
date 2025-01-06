@@ -1,0 +1,9 @@
+<div class="app-recent-searches full-height">
+  @if(recentSearches.length === 0){
+  <div class="text-white flex-center full-height">No Recent Search</div>
+  }@else{
+  @for( item of recentSearches; track item ){
+  <app-wrapper [item]="item"></app-wrapper>
+  }
+  }
+</div>

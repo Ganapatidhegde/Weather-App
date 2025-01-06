@@ -1,0 +1,13 @@
+<div class="icon">
+  <div><ion-icon class="weather-icon" name={{item?.icon}}></ion-icon></div>
+  <div class="values">
+    <div class="label">{{item?.label}}</div>
+    @if(item?.min){
+    <span class="value">{{item?.min}} &deg;C - </span>
+    }@if(item?.max){
+    <span class="value">{{item?.max}} &deg;C</span>
+    }
+    <div class="value">{{item?.value}}</div>
+  </div>
+
+</div>

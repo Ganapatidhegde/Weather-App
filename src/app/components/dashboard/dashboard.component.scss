@@ -1,0 +1,54 @@
+.dashboard{
+    color:white
+}
+ion-icon[name="heart"]{
+    font-size: 30px;
+    margin-right: 10px;
+}
+.filled{
+    color: yellow;
+}
+.weather-icon{
+    height: 90px;
+    width: 90px;
+}
+button{
+    border:0;
+    background:none
+}
+.add-favt-button{
+    width: 100%;
+    color: white;
+}
+.current-time{
+    color: #9881D1;
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin: 10px 0;
+}
+.hide{
+    display: none;
+}
+.current-location{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.current-weather{
+    height: 30rem;
+    margin-top: 8rem;
+}
+.top-margin{
+    margin-top: 20px;
+}
+.weather-temp{
+    font-size: 50px;
+}
+.weather-status{
+    font-size: 20px;
+}
+.footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

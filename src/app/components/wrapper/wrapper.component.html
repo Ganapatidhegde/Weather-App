@@ -1,0 +1,29 @@
+<div class="each-wrapper">
+  <div>
+    <div class="current-location">
+      <span>{{item.location.name}}</span>
+      <span>, </span>
+      <span>{{item.location.region}}</span>
+    </div>
+    <div class="current-weather">
+      @if(item.current.weather_descriptions[0] === 'Partly Cloudy'){
+      <ion-icon class="weather-icon" name="partly-sunny-outline"></ion-icon>
+      }@else if(item.current.weather_descriptions[0] === "Sunny"){
+      <ion-icon class="weather-icon" name="sunny-outline"></ion-icon>
+      }@else {
+      <ion-icon class="weather-icon" name="rainy-outline"></ion-icon>
+      }
+      <div class="weather flex-center">
+        <div class="weather-temp top-margin">
+          {{item.current.temperature}} &deg;C
+        </div>
+        <div class="weather-status top-margin">
+          {{item.current.weather_descriptions[0]}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <ion-icon name="heart" [class.filled]="true"></ion-icon>
+  </div>
+</div>

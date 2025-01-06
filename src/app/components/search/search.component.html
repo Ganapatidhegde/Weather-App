@@ -1,0 +1,30 @@
+<div>
+  
+  @if(isItemAvailable){
+  <div>
+    @for (item of filteredData; track $index) {
+
+    <ion-item class="option" (click)="handleClick(item)">
+    <!-- <a routerLink="/folder/weather"> -->
+      {{item.location.name}}
+    <!-- </a> -->
+    </ion-item>
+    }
+
+  </div>
+  }
+  
+
+  <!-- <input placeholder="Search for a place" id="txtautocomplete" class="native-input sc-ion-input-md"
+          list="txtautocompletelist" (change)="updateSearchResults($event)" [(ngModel)]="input">
+        <div class="datalist">
+          <datalist id="txtautocompletelist">
+            @for (item of weatherdata; track $index) {
+
+            <option class="option" [value]="item.location.name"><a
+                routerLink="/folder/weather">{{item.location.name}}</a></option>
+
+            }
+          </datalist>
+        </div> -->
+</div>
