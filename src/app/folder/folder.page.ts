@@ -7,7 +7,6 @@ import { SearchComponent } from '../components/search/search.component';
 import { FavouritesComponent } from '../components/favourites/favourites.component';
 import { WeatherDataService } from 'src/app/services/weather-data.service';
 import { Weather } from 'src/app/services/weather-data.type';
-import { WrapperComponent } from '../components/wrapper/wrapper.component';
 import { RecentSearchesComponent } from '../components/recent-searches/recent-searches.component';
 
 @Component({
@@ -53,7 +52,7 @@ export class FolderPage implements OnInit {
   }
   updateStorage(key: any) {
     localStorage.removeItem(key);
-    if (key = 'favtItem') {
+    if (key === 'favtItem') {
       this.favourites = this.weatherData.getDataFromLocalStorage(key);
     } else {
       this.recentSearches = this.weatherData.getDataFromLocalStorage(key);

@@ -55,7 +55,7 @@
       <app-search [isItemAvailable]="isItemAvailable" [filteredData]="filteredData"
         class="app-search full-width" [selectedCountry]="selectedCountry"></app-search>
       }@else {
-        <app-recent-searches (update)="updateStorage($event)" [recentSearches]="recentSearches"></app-recent-searches>
+        <app-recent-searches (updateStorage)="updateStorage($event)" [recentSearches]="recentSearches"></app-recent-searches>
       }
     </div>
   </div>

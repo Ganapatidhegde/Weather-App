@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { WeatherDataService } from 'src/app/services/weather-data.service';
 import { Weather } from 'src/app/services/weather-data.type';
 import { IonicModule } from '@ionic/angular';
-// import { IonAlert } from '@ionic/angular/standalone';
 import { OverlayEventDetail } from '@ionic/core';
 import { WrapperComponent } from '../wrapper/wrapper.component';
 import { ClearStorageComponent } from '../clear-storage/clear-storage.component';
@@ -36,10 +35,6 @@ export class FavouritesComponent implements OnInit {
       },
     },
   ];
-
-  setResult(event: CustomEvent<OverlayEventDetail>) {
-    console.log(`Dismissed with role: ${event.detail.role}`);
-  }
 
   setOpen(isOpen: boolean) {
     this.isAlertOpen = isOpen;

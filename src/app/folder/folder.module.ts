@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { FolderPageRoutingModule } from './folder-routing.module';
-import { IonAlert } from '@ionic/angular/standalone';
+import { IonAlert, IonInfiniteScroll, IonInfiniteScrollContent } from '@ionic/angular/standalone';
 import { FolderPage } from './folder.page';
 
 @NgModule({
@@ -15,7 +15,9 @@ import { FolderPage } from './folder.page';
         IonicModule,
         FolderPageRoutingModule,
         FolderPage,
-        IonAlert
+        IonAlert,
+        IonInfiniteScroll,
+        IonInfiniteScrollContent,
     ]
 })
-export class FolderPageModule {}
+export class FolderPageModule { }
