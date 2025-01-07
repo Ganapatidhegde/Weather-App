@@ -51,10 +51,13 @@ export class FolderPage implements OnInit {
   handleClick() {
     this.router.navigate(['/folder/search'])
   }
-  updateStorage() {
-    localStorage.removeItem('favtItem');
-    this.favourites = this.weatherData.getDataFromLocalStorage('favtItem');
-    console.log('here...');
+  updateStorage(key: any) {
+    localStorage.removeItem(key);
+    if (key = 'favtItem') {
+      this.favourites = this.weatherData.getDataFromLocalStorage(key);
+    } else {
+      this.recentSearches = this.weatherData.getDataFromLocalStorage(key);
+    }
   }
 
   ionViewDidEnter() {

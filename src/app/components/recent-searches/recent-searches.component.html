@@ -2,6 +2,7 @@
   @if(recentSearches.length === 0){
   <div class="text-white flex-center full-height">No Recent Search</div>
   }@else{
+  <app-clear-storage buttonText="Clear All" title="You recently searched for" [setOpen]="setOpen"></app-clear-storage>
   @for( item of recentSearches; track item ){
   <app-wrapper [item]="item"></app-wrapper>
   }

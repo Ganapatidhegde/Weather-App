@@ -50,12 +50,12 @@
       @if(folder === 'weather'){
       <div class="full-height"><app-dashboard [isLandingPage]="hasUrlQuery" [current]="current" [weather]="weatherdata"></app-dashboard></div>
       }@else if (folder==='favorites') {
-      <app-favourites (updateStorage)="updateStorage()" [favourites]="favourites"></app-favourites>
+      <app-favourites (updateStorage)="updateStorage($event)" [favourites]="favourites"></app-favourites>
       }@else if(folder==='search'){
       <app-search [isItemAvailable]="isItemAvailable" [filteredData]="filteredData"
         class="app-search full-width" [selectedCountry]="selectedCountry"></app-search>
       }@else {
-        <app-recent-searches [recentSearches]="recentSearches"></app-recent-searches>
+        <app-recent-searches (update)="updateStorage($event)" [recentSearches]="recentSearches"></app-recent-searches>
       }
     </div>
   </div>

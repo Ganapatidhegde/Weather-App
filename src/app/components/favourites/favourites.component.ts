@@ -5,12 +5,13 @@ import { IonicModule } from '@ionic/angular';
 // import { IonAlert } from '@ionic/angular/standalone';
 import { OverlayEventDetail } from '@ionic/core';
 import { WrapperComponent } from '../wrapper/wrapper.component';
+import { ClearStorageComponent } from '../clear-storage/clear-storage.component';
 
 @Component({
   selector: 'app-favourites',
   templateUrl: './favourites.component.html',
   styleUrls: ['./favourites.component.scss'],
-  imports: [IonicModule, WrapperComponent],
+  imports: [IonicModule, WrapperComponent, ClearStorageComponent],
   standalone:true
 })
 export class FavouritesComponent implements OnInit {
@@ -31,7 +32,7 @@ export class FavouritesComponent implements OnInit {
       text: 'Yes',
       role: 'confirm',
       handler: () => {
-        this.updateStorage.emit();
+        this.updateStorage.emit('favtItem');
       },
     },
   ];

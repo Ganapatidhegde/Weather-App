@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { EmptyPageComponent } from './empty-page.component';
+import { ClearStorageComponent } from './clear-storage.component';
 
-describe('EmptyPageComponent', () => {
-  let component: EmptyPageComponent;
-  let fixture: ComponentFixture<EmptyPageComponent>;
+describe('ClearStorageComponent', () => {
+  let component: ClearStorageComponent;
+  let fixture: ComponentFixture<ClearStorageComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmptyPageComponent ],
+      declarations: [ ClearStorageComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(EmptyPageComponent);
+    fixture = TestBed.createComponent(ClearStorageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

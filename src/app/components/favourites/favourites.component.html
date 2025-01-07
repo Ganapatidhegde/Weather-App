@@ -8,14 +8,7 @@
   @if(favourites.length === 0){
   <div class="text-white flex-center full-height">No Favourite added.</div>
   }@else {
-  <div class="title text-white">
-    <div class="title-text">
-      {{favourites.length}} city added as favorite
-    </div>
-    <div id="present-alert" (click)="setOpen(true)" class="title-text">
-      Remove All
-    </div>
-  </div>
+  <app-clear-storage buttonText="Remove" [title]="favourites.length + 'city added as favorite'" [setOpen]="setOpen"></app-clear-storage>
   @for( item of favourites; track item ){
   <app-wrapper [item]="item"></app-wrapper>
   }
